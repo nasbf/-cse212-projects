@@ -12,8 +12,21 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // Plan
+        // 1. create an array with the lenght 
+        // 2. Loop through each position of the array.
+        // 3. Calculate the multiple for the current position.
+        // 4. Store the multiple in the array.
+        // 5. Return the completed array.
 
-        return []; // replace this return statement with your own
+        double[] result = new double[length];
+
+        for (int i = 0; i < length; i++)
+        {
+            result[i] = number * (i + 1); 
+        }
+
+        return result; // replace this return statement with your own
     }
 
     /// <summary>
@@ -29,5 +42,19 @@ public static class Arrays
         // Remember: Using comments in your program, write down your process for solving this problem
         // step by step before you write the code. The plan should be clear enough that it could
         // be implemented by another person.
+        // 1. use getRange to create a new list of elements to find the first part 
+        // 2. use getRange to create a new list of elements to find the second part
+        // 3. join the lists with addRange putting second part first
+        // 4. Remove all elements of the data list
+        // 5. Update data with a new list of elements 
+
+        int start = data.Count - amount;
+        List<int> secondPart = data.GetRange(start, amount);
+        List<int> firstPart = data.GetRange(0, start);
+        secondPart.AddRange(firstPart);
+        data.RemoveRange(0, data.Count);
+        data.AddRange(secondPart);
+
+
     }
 }
