@@ -24,22 +24,67 @@ public class Node
         else
         {
             // Insert to the right
-            if (Right is null)
+            if (value == Data)
+            {
+                return;
+            }
+            else if(Right is null)
                 Right = new Node(value);
             else
                 Right.Insert(value);
         }
+
     }
 
     public bool Contains(int value)
     {
         // TODO Start Problem 2
-        return false;
+        if (value == Data)
+        {
+            return true;
+        }
+        else if (value < Data)
+        
+        {
+            if (Left is null)
+                return false;
+            else
+                return Left.Contains(value);
+        }
+        else 
+        {
+            if (Right is null)
+                return false; 
+            else
+                return Right.Contains(value);
+               
+        }
+
     }
 
     public int GetHeight()
     {
         // TODO Start Problem 4
-        return 0; // Replace this line with the correct return statement(s)
+        int leftHeight = 0;
+        int rightHeight = 0;
+        if (Left is null)
+        {
+            leftHeight = 0;
+        }
+        else
+        {
+            leftHeight = Left.GetHeight();
+        }
+
+        if (Right is null)
+        {
+            rightHeight = 0;
+        }
+        else
+        {
+            rightHeight = Right.GetHeight();
+        }
+
+        return 1+Math.Max(leftHeight, rightHeight); // Replace this line with the correct return statement(s)
     }
 }
